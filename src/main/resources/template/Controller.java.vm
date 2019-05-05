@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ${package}.${moduleName}.entity.${className}Entity;
 import ${package}.${moduleName}.service.${className}Service;
 import ${mainPath}.common.utils.PageUtils;
-import
-
-import javax.xml.transform.Result; ${mainPath}.common.utils.Result;
+import ${mainPath}.common.utils.Result;
 
 
 
