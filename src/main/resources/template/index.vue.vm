@@ -77,16 +77,16 @@
       AddOrUpdate
     },
     activated () {
-      this.getDataList()
+      this.getDataPage()
     },
     methods: {
       // 获取数据列表
-      getDataList () {
+      getDataPage () {
         this.dataListLoading = true
         #[[this.$http({]]#
-          #[[url: this.$http.adornUrl]]#('/${moduleName}/${pathName}/list'),
-          method: 'get',
-          #[[params: this.$http.adornParams({]]#
+          #[[url: this.$http.adornUrl]]#('/${moduleName}/${pathName}/page'),
+          method: 'post',
+          #[[data: this.$http.adornParams({]]#
             'page': this.pageIndex,
             'limit': this.pageSize,
             'key': this.dataForm.key
@@ -149,7 +149,7 @@
                 }
               })
             } else {
-              #[[this.$message.error(data.msg)]]#
+              #[[this.$message.error(data.message)]]#
             }
           })
         })

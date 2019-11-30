@@ -5,16 +5,18 @@ import ${mainPath}.common.utils.PageUtils;
 import ${package}.${moduleName}.entity.${className}Entity;
 
 import java.util.Map;
+import java.util.List;
 
 /**
  * ${comments}
  *
  * @author ${author}
- * @email ${email}
  * @date ${datetime}
  */
 public interface ${className}Service extends IService<${className}Entity> {
 
-    PageUtils queryPage(Map<String, Object> params);
+    PageUtils queryPage(Map<String, Object> data);
+
+    List<${className}Entity> queryList(Map<String, Object> data);
 }
 
