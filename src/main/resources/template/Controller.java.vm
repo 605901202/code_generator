@@ -93,8 +93,8 @@ public class ${className}Controller {
     @PostMapping("/update")
     @RequiresPermissions("${moduleName}:${pathName}:update")
     @ApiOperation(value = "更新${comments}信息")
-    public Result update(@RequestBody ${className}Entity ${classname}){
-		${classname}Service.updateById(${classname});
+    public Result update(@RequestBody ${className}Entity ${classname}Entity){
+		${classname}Service.updateById(${classname}Entity);
 
         return Result.ok();
     }
@@ -105,8 +105,11 @@ public class ${className}Controller {
     @PostMapping("/delete")
     @RequiresPermissions("${moduleName}:${pathName}:delete")
     @ApiOperation(value = "根据ID删除${comments}信息")
-    public Result delete(@RequestBody ${pk.attrType}[] ${pk.attrname}List){
-		${classname}Service.removeByIds(Arrays.asList(${pk.attrname}List));
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "activityDraftIdList", value = "要删除的${comments}ID列表"),
+    })
+    public Result delete(@RequestBody Map<String,List<${pk.attrType}>> data ){
+		${classname}Service.removeByIds(data.get(${pk.attrname}List));
 
         return Result.ok();
     }
